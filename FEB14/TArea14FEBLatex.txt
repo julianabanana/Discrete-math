@@ -1,0 +1,137 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{array}
+
+\title{Tarea Febrero 14}
+\author{Juliana Parra Caro}
+\date{Feb 2023}
+
+\begin{document}
+
+\maketitle
+\begin{center}
+\section{Punto 1}
+Verificar si la operación * sobre el conjunto \{a,b,c,d\} es un grupo.\\\bigskip
+Para comenzar, se define una función $\mu$  como: \\
+
+
+\begin{tabular}{ | m{1em} | m{1em}| m{1em} | m{1em} |m{1em} |}
+  \hline
+  $\mu$ & a & b & c & d\\
+  \hline
+  a & a & b & c & d \\
+  \hline
+  b & c & d & d & d \\
+  \hline
+  c & a & b & d & c\\
+  \hline
+  d & d & a & c & d\\
+  \hline
+\end{tabular}
+\bigskip
+
+\textbf{Caso 1} Dos de los factores son elementos neutros: \\
+$(a \ast a) \ast b = a \ast (a \ast b)\\a \ast b = a \ast b\\b = b$\\
+
+\textbf{Caso 2} Uno de los factores es el elemento neutro: \\
+$(a \ast b) \ast c = a \ast (b \ast c)\\
+b \ast c = a \ast d\\
+d = d$\\
+
+\textbf{Caso 3} Ninguno de los factores es el elemento neutro: \\
+$(b \ast c) \ast d = b \ast (c \ast d)\\
+d \ast d = b \ast c\\
+d = d$\\
+
+Con estos tres casos, se prueba la sociatividad de la función $\mu$
+
+\section{Punto 2}
+Demostrar que la multiplicación de matrices cuadradas es asociativa. \\ \bigskip
+Se define el producto de matrices cuadradas como: \\
+Sean $A$ y $B$ matrices cuadradas reales del mismo orden que el producto $C=A\ast B$, resultado de multiplicar las filas de $A$ por las columnas de $B$, es decir: \\
+
+$A=$\left[
+\begin{array}{cc}
+  $a1$ & $a2$\\
+  $a3$ & $a4$
+\end{array}
+\right]\\
+
+
+$B=$\left[
+\begin{array}{cc}
+  b1 & b2\\
+  b3 & b4
+\end{array}
+\right]$\\
+
+$C=$\left[
+\begin{array}{cc}
+  (a1\ast b1+a2\astb3)  & (a1\ast b2+a2\ast b4)\\
+  (a3\ast b1+a4\astb2) & (a3\ast b2+a4\ast b4)
+\end{array}
+\right]$ \\\bigskip
+
+Es posible deducir que cada elemento de la matriz producto $C$ está conformado por una suma de productos Reales, y al ser números Reales, por propiedades de la suma de estos se asume que el producto de matrices $C$ pertenece a dicho conjunto, pues para un producto $D = A \ast B \ast C$ donde $A,B,C \in \mathbb{R}$, y se tiene que: \\ \bigskip
+$D11 = ((a1\ast b1+a2\ast b3)\ast c1) +((a1\ast b2+a2\ast b4)\ast c2) =((b1\ast c1+b2\ast c3)\ast a1)
++((b1\ast c2+b2\ast c4)\ast a2)$
+\bigskip
+
+Este resultado es una suma de productos reales, y como se demostró anteriormente su asociatividad, también se extiende esta propiedad a todos los elementos que conforman la matriz $D\in \mathbb{R}$
+
+\section{Punto 3}
+Verificar que la multiplicación de complejos es asociativa. \bigskip
+
+Se define el conjunto de los números complejos $C$ como el conjunto de números reales \\
+
+$R+i= \sqrt{-i}$ \\
+siendo cualquier número complejo\\
+$c \in $ C como $c = (a+ib)$ con $a, b \in (R)$ \bigskip
+
+Para definir elproducto de complejos se tiene \\
+$c = (A + IB), D = (E + IF)$\\
+$P = (A*E - B*F) + (A*F + B*E)I$\bigskip
+
+También ser define la forma polar de un número complejo como:\\
+Si $c \in C$ su expresión polar será $ c = r(cos(\theta)+sen(\theta)i)$,
+en donde $r = \sqrt{a^{2}+b^{2}}\theta = tan^{-1}(\frac{b}{a})$, $a \ne 0$ \bigskip
+
+Sen usará la igualdad $e^{i} = cos(\theta) + sen(\theta)i$ para demostrar las propiedades de grupo en los complejos, acompañado de el producto de exponenciales reales. \bigskip
+
+\textbf{Elemento neutro} \\
+\bigskip
+Sean a y b complejos expresados de la forma \\
+$a = e^{i}\theta$ y $b = e^{i}\alpha$, $\theta, \alpha \in R$ \\
+su producto es $a*b = e^{i}(\theta + \alpha)$\\
+
+Es decir, una suma de reales. Al comparar, se sabe que el elemento neutro de la suma de reales es 0, por lo que se reemplaza por 0 para encontrar el elemento neutro en el producto.\\
+
+$\theta=0$\\
+$a*b = e^{i}(\theta+\alpha) = e^{i}(0+\alpha) = e^{i}(\alpha$ \\
+$a*b = e^{i}(\theta) * e^{i}(\alpha) = e^{i}(0) * e^{i}(\alpha) = 1 * e^{i}(\alpha) = e^{i}(\alpha)$\\
+
+Por las propiedades de los exponentes reales se sabe que un número real elevado a la 0 es 1, así que el elemento neutro de los números complejos es 1. \bigskip
+
+\textbf{Inverso multiplicativo} \\
+\bigskip
+Para determinar el inverso multiplicativo en los números reales, se parte del inverso aditivo. Se establece que\\
+$\forall a \in R \land -a \in R$, tal que $-a + a =0$ \
+
+Asignamos $\alpha = - \theta$, así $a*b = e^{i}(\theta+\alpha) = e^{i}(\theta-\alpha) = e^{i}(0) = 1$\\
+Por las propiedades de los exponentes se tiene que\\
+$a^{-n} = \frac{1}{a^{n}}$\\
+Que permite inferir que el inverso de multiplicativo de un numero complejo $c$ es $\frac{1}{c}$. \bigskip
+
+\textbf{Asociatividad} \\
+\bigskip
+Para demostrar la propiedad de asociatividad, se toman 3 números arbitrarios, se escriben en su forma exponencial y se halla el producto:\\
+$(e^{i}(\alpha)* e^{i}(\theta)) e^{i}(\beta) = e^{i}(\alpha + \theta) * e^{i}(\beta) = e^{i}((\alpha+\theta)+\beta) =$\\
+$e^{i}(\alpha+(\theta+\beta)) = e^{i}(\alpha) * e^{i}(\theta+\beta) = e^{i}(\alpha)*(e^{i}(\theta)*e^{i}(\beta))$ \\
+demostrando que el producto de los números complejos es asociativo.\bigskip
+
+
+
+\end{center}
+
+\end{document}
+
