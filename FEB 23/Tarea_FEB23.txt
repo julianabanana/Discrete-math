@@ -1,0 +1,261 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{tikz}
+\usepackage{multicol}
+
+\title{Tarea Febrero 23 \\ Simetrías del hexágono}
+\author{Juliana Parra Caro}
+\date{May 2023}
+
+\begin{document}
+\begin{center}
+
+       \vspace*{1cm}
+       \huge
+       \textbf{Simetrías del hexágono}
+
+       \vspace{0.5cm}
+        Tarea Febrero 23
+
+       \vspace{1.5cm}
+
+       \textbf{Juliana Parra Caro}
+\\[4in]
+
+
+\begin{tikzpicture}
+   \newdimen\R
+   \R=2.7cm
+   \draw (0:\R) \foreach \x in {60,120,...,360} {  -- (\x:\R) };
+   \foreach \x/\l/\p in
+     { 60/{(a)}/above,
+      120/{(f)}/above,
+      180/{(e)}/left,
+      240/{(d)}/below,
+      300/{(c)}/below,
+      360/{(b)}/right
+     }
+     \node[inner sep=1pt,circle,draw,fill,label={\p:\l}] at (\x:\R) {};
+\end{tikzpicture}
+
+V = {a, b, c, d, e, f}\\
+E = {(a,b), (b,c), (c,d), (d,e), (e,f), (f,a)}\bigskip
+
+\begin{tabular}{ | m | m | m | m | m | m | m |}
+  \hline
+  1 & a & b & c & d & e & f\\
+  \hline
+  2 & b & c & d & e & f & a\\
+  \hline
+  3 & c & d & e & f & a & b\\
+  \hline
+  4 & d & e & f & a & b & c\\
+  \hline
+  5 & e & f & a & b & c & d\\
+  \hline
+  6 & f & a & b & c & d & e\\
+  \hline
+  7 & f & e & d & c & b & a\\
+  \hline
+  8 & e & d & c & b & a & f\\
+  \hline
+  9 & d & c & b & a & f & e\\
+  \hline
+  10 & c & b & a & f & e & d\\
+  \hline
+  11 & b & a & f & e & d & c\\
+  \hline
+  12 & a & f & e & d & c & b\\
+  \hline
+\end{tabular}
+
+
+
+\begin{tabular}{ | m | m | m | m | m | m | m | m | m | m | m | m | m |}
+  \hline
+  $s_0$ & $s_1$ & $s_2$ & $s_3 & $s_4$ & $s_5$ & $s_6$ & $s_7$ & $s_8$ & $s_9$ & $s_{10}$ & $s_{11}$ & $s_{12}$\\
+  \hline
+  $s_1$ & $s_1$ & $s_2$ & $s_3$ & $s_4$ & $s_5$ & $s_6$ & $s_7$ & $s_8$ & $s_9$ & $s_{10}$ & $s_{11}$ & $s_{12}$\\
+  \hline
+  $s_2$ & $s_2$ & $s_3$ & $s_4$ & $s_5$ & $s_6$ & $s_1$ & $s_{12}$ & $s_7$ & $s_8$ & $s_9$ & $s_{10}$ & $s_{11}$\\
+  \hline
+  $s_3$ & $s_3$ & $s_4$ & $s_5$ & $s_6$ & $s_1$ & $s_2$ & $s_{11}$ & $s_{12}$ & $s_7$ & $s_8$ & $s_9$ & $s_{10}$\\
+  \hline
+  $s_4$ & $s_4$ & $s_5$ & $s_6$ & $s_1$ & $s_2$ & $s_3$ & $s_{10}$ & $s_{11}$ & $s_{12}$ & $s_7$ & $s_8$ & $s_9$\\
+  \hline
+  $s_5$ & $s_5$ & $s_6$ & $s_1$ & $s_2$ & $s_3$ & $s_4$ & $s_9$ & $s_{10}$ & $s_{11}$ & $s_{12}$ & $s_7$ & $s_8$\\
+  \hline
+  $s_6$ & $s_6$ & $s_1$ & $s_2$ & $s_3$ & $s_4$ & $s_5$ & $s_8$ & $s_9$ & $s_{10}$ & $s_{11}$ & $s_{12}$ & $s_7$\\
+  \hline
+  $s_7$ & $s_7$ & $s_8$ & $s_9$ & $s_{10}$ & $s_{11}$ & $s_{12}$ & $s_1$ & $s_2$ & $s_3$ & $s_4$ & $s_5$ & $s_6$\\
+  \hline
+  $s_8$ & $s_8$ & $s_9$ & $s_{10}$ & $s_{11}$ & $s_{12}$ & $s_7$ & $s_6$ & $s_1$ & $s_2$ & $s_3$ & $s_4$ & $s_5$\\
+  \hline
+  $s_9$ & $s_9$ & $s_{10}$ & $s_{11}$ & $s_{12}$ & $s_7$ & $s_8$ & $s_5$ & $s_6$ & $s_1$ & $s_2$ & $s_3$ & $s_4$\\
+  \hline
+  $s_{10}$ & $s_{10}$ & $s_{11}$ & $s_{12}$ & $s_7$ & $s_8$ & $s_9$ & $s_4$ & $s_5$ & $s_6$ & $s_1$ & $s_2$ & $s_3$\\
+  \hline
+  $s_{11}$ & $s_{11}$ & $s_{12}$ & $s_7$ & $s_8$ & $s_9$ & $s_{10}$ & $s_3$ & $s_4$ & $s_5$ & $s_6$ & $s_1$ & $s_2$\\
+  \hline
+  $s_{12}$ & $s_{12}$ & $s_7$ & $s_8$ & $s_9$ & $s_{10}$ & $s_{11}$ & $s_2$ & $s_3$ & $s_4$ & $s_5$ & $s_6$ & $s_1$\\
+  \hline
+\end{tabular}
+\end{center}
+
+
+\bigskip
+
+\begin{multicols}{2}
+\setlength{\columnsep}{1cm}
+
+$s_1 = $
+\left(
+\begin{array}{cccccc}
+a & b & c & d & e & f\\
+a & b & c & d & e & f
+\end{array}
+\right)\bigskip
+
+$s_2 = $
+\left(
+\begin{array}{cccccc}
+a & b & c & d & e & f\\
+b & c & d & e & f & a
+\end{array}
+\right)\bigskip
+
+$s_3 = $
+\left(
+\begin{array}{cccccc}
+a & b & c & d & e & f\\
+c & d & e & f & b & a
+\end{array}
+\right)\bigskip
+
+$s_4 = $
+\left(
+\begin{array}{cccccc}
+a & b & c & d & e & f\\
+d & e & f & a & b & c
+\end{array}
+\right)\bigskip
+
+$s_5 = $
+\left(
+\begin{array}{cccccc}
+a & b & c & d & e & f\\
+e & f & a & b & c & d
+\end{array}
+\right)\bigskip
+
+$s_6 = $
+\left(
+\begin{array}{cccccc}
+a & b & c & d & e & f\\
+f & a & b & c & d & e
+\end{array}
+\right)\bigskip
+
+$s_7 = $
+\left(
+\begin{array}{cccccc}
+a & b & c & d & e & f\\
+f & e & d & c & b & a
+\end{array}
+\right)\bigskip
+
+$s_8 = $
+\left(
+\begin{array}{cccccc}
+a & b & c & d & e & f\\
+a & f & e & d & c & b
+\end{array}
+\right)\bigskip
+
+$s_9 = $
+\left(
+\begin{array}{cccccc}
+a & b & c & d & e & f\\
+e & d & c & b & a & f
+\end{array}
+\right)\bigskip
+
+$s_{10} = $
+\left(
+\begin{array}{cccccc}
+a & b & c & d & e & f\\
+d & c & b & a & f & e
+\end{array}
+\right)\bigskip
+
+$s_{11} = $
+\left(
+\begin{array}{cccccc}
+a & b & c & d & e & f\\
+c & b & a & f & e & d
+\end{array}
+\right)\bigskip
+
+$s_{12} = $
+\left(
+\begin{array}{cccccc}
+a & b & c & d & e & f\\
+b & a & f & e & d & c
+\end{array}
+\right)\bigskip
+
+\blindtext\blindtext
+\end{multicols}
+
+\bigskip
+\textbf{Identidad = S_1}
+\bigskip
+
+\left(
+\begin{array}{cccccc}
+a & b & c & d & e & f\\
+a & b & c & d & e & f
+\end{array}
+\right)
+*
+\left(
+\begin{array}{cccccc}
+a & b & c & d & e & f\\
+b & c & d & e & f & a
+\end{array}
+\right)
+=
+\left(
+\begin{array}{cccccc}
+a & b & c & d & e & f\\
+b & c & d & e & f & a
+\end{array}
+\right)
+
+\bigskip
+
+\left(
+\begin{array}{cccccc}
+a & b & c & d & e & f\\
+a & b & c & d & e & f
+\end{array}
+\right)
+*
+\left(
+\begin{array}{cccccc}
+a & b & c & d & e & f\\
+f & a & b & c & d & e
+\end{array}
+\right)
+=
+\left(
+\begin{array}{cccccc}
+a & b & c & d & e & f\\
+f & a & b & c & d & e
+\end{array}
+\right)
+
+
+
+
+\end{document}
