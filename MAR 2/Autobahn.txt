@@ -1,1 +1,93 @@
- 
+ \documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+\title{\huge Autobahan}
+\author{Juliana Parra Caro}
+\date{May 2023}
+
+\begin{document}
+
+\maketitle
+
+\section{\large ¿Qué es un autobahan y para qué sirve?}
+El artículo ”Autobahn: Automorphism-based Graph Neural Nets” presenta una nueva familia
+de redes neuronales para el aprendizaje de grafos llamada Autobahn. Esta red utiliza grupos de
+automorfismos de subgrafos para realizar convoluciones localmente equivariantes en grafos. \\La
+idea es que los grupos de automorfismos de los subgrafos brindan información sobre las simetrías
+locales del grafo, lo que se puede utilizar para realizar operaciones de convolución que tengan en
+cuenta la simetría local de cada subgrafo.
+Autobahn se puede utilizar para realizar tareas de aprendizaje de grafos como lo son la clasifi-
+cación y predicción de las propiedades grafos moleculares. \\
+Según los autores, Autobahn tiene un rendimiento comparable o mejor que otros modelos de
+aprendizaje de grafos de última generación en estas tareas, lo que sugiere que puede ser un enfoque
+prometedor para el aprendizaje de grafos en general.
+En resumen, Autobahn es una técnica avanzada de procesamiento de grafos que puede mejorar
+el rendimiento de las redes neuronales en tareas que involucran estructuras de grafos.
+\section{\large ¿Por qué los autores proponen utilizar los automorfismos de grafos para reflejar
+las simetrías internas de un grafo?}
+Los autores proponen utilizar los automorfismos de grafos para reflejar las simetrías internas de
+un grafo porque las simetrías son una propiedad fundamental de los grafos y pueden ser utilizadas
+para reducir el espacio de búsqueda de soluciones en problemas relacionados con grafos.\\
+Un automorfismo de un grafo es una función que mapea los vértices del grafo a sí mismos de
+tal manera que preserva la estructura del grafo. En otras palabras, es una función que ”conserva”
+las simetrías del grafo.\\ Por ejemplo, un cuadrado tiene cuatro automorfismos distintos, correspon-
+dientes a las rotaciones de 0, 90, 180 y 270 grados.
+Al utilizar los automorfismos para diseñar las convoluciones en una red neuronal en grafos,
+se puede aprovechar esta simetría interna para reducir la cantidad de parámetros que deben ser
+aprendidos por la red. \\ En lugar de aprender los mismos pesos para cada vértice del grafo, la red
+sólo necesita aprender los pesos para un conjunto reducido de vértices que son representativos de
+cada órbita de automorfismos.
+\\
+Además, utilizar los automorfismos de grafos también permite que la red sea equivariante a
+las transformaciones que preservan la estructura del grafo, lo que puede ser útil en muchas apli-
+caciones de procesamiento de grafos, como el reconocimiento de patrones y la clasificación de grafos.
+\section{\large Pruebe los isomorfismos sugeridos por la (Figura 2.1 panel a)}
+El primer grafo describe el grupo cíclico de orden 1 y su estructura simétrica. De manera
+similar al grupo Z1, cada elemento en este grupo tiene una órbita única, lo que significa que no es
+posible realizar permutaciones que preserven la simetría interna del grafo. Además, dado que los
+grafos con la misma órbita tienen el mismo color, en este grafo todos los vértices son de diferentes
+colores, lo que sugiere que no hay vértices equivalentes que puedan ser intercambiados mediante
+simetrías.\\
+Z1:\\
+El segundo grafo describe un grupo simétrico de nueve elementos, que corresponde a un
+grafo con nueve nodos. En un grafo simétrico de nueve nodos, todas las posibles permutaciones
+serían igual al factorial de sus órbitas similares, que son los vértices del primero al noveno, pintados
+de color azul. Estos vértices se pueden permutar de 9! maneras distintas mientras se mantiene la
+simetría interna del grafo.\\
+S3xS2:\\
+El tercer grafo describe el producto de dos grafos simétricos: uno con dos elementos y otro con
+tres elementos. En cuanto al grupo de simetrías del grafo resultante, podemos observar que los
+primeros vértices pintados de naranja permanecen en la misma órbita y pueden ser permutados sin
+que se pierda la estructura simétrica del grafo, al igual que los vértices inferiores pintados de azul.
+El grupo de simetría S2 tiene 2! permutaciones y el grupo de simetría S3 tiene 3! permutaciones,
+lo que significa que la totalidad de permutaciones distintas del grafo es de 12.\\
+D6:\\
+El grupo diedral D6 consta de 12 elementos que incluyen todas las rotaciones y reflexiones posi-
+bles. La simetría del sistema se puede representar mediante los ejes de simetría de un hexágono
+que tiene características similares. Todos los nodos del grafo pertenecen a la misma órbita del
+grupo automorfismo, lo que significa que los elementos del grafo pueden ser rotados en cualquier
+dirección y también pueden ser reflejados en cualquier eje de simetría del hexágono sin que se
+pierdan las condiciones de su naturaleza simétrica.
+
+\section{\large Explique en que consiste la Figura 2.1 panel b. ¿Cuál es su relación con el grupo
+de automorfismos de D6?}
+En el artículo, se describe que la figura de la neurona fue creada aplicando el Algoritmo 1 a un
+grafo dirigido cíclico. Según el artículo, el proceso de concordancia solo puede realizarse hasta un
+elemento en el grupo de automorfismos del grafo, específicamente el grupo cíclico de orden seis, C6.\\
+La configuración simplificada en la que la capa opera en un solo canal de características de los
+nodos indica que la transformación no altera la topología real del grafo y es invariante en cuanto
+a las permutaciones realizadas. En otras palabras, cuando se construye C6 que opera con datos
+gráficos, es importante preservar las simetrías naturales de los grafos de entrada bajo permutación.\\
+En este ejemplo, la red neuronal se gira y se realiza la convolución de la matriz de adyacencia en
+la información de sus neuronas o elementos, sin que la naturaleza del grafo cambie.
+Después de aplicar la convolución, la activación de entrada recupera las capas de convolución
+estándar utilizadas y muestra el isomorfismo del grafo. En otras palabras, la convolución aplicada
+a la matriz de adyacencia preserva las características del grafo original y nos permite ver que el
+resultado final sigue siendo isomórfico al grafo original.\\
+El grafo C6 mostrado en la figura 2.b es isomorfo a D6, lo que significa que los automorfismos
+de D6 corresponden a la estructura de C6. Además, D6 tiene un subgrupo normal de orden 6 que
+es cíclico y que también se puede encontrar en C6. Esto se debe a que los dos grafos tienen la
+misma estructura subyacente y, por lo tanto, comparten las mismas propiedades y subgrupos.
+
+\end{document}
+
